@@ -1,15 +1,14 @@
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "primary-outline" | "secondary-outline";
+type Variant = "primary" | "secondary" | "outline";
 
 const base =
-  "btn font-body font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1FA3B3]";
+  "inline-flex items-center justify-center h-10 px-4 rounded-[2px] font-mono text-xs uppercase tracking-wider transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D9480F]";
 
 const variants: Record<Variant, string> = {
-  primary: "btn-primary",
-  secondary: "btn-secondary",
-  "primary-outline": "btn-primary-outline",
-  "secondary-outline": "btn-secondary-outline",
+  primary: "bg-[#1A1A17] text-[#F4F0E6] border border-[#1A1A17] hover:bg-[#D9480F] hover:border-[#D9480F]",
+  secondary: "bg-[#ECE7DA] text-[#1A1A17] border border-[#D9D4C7] hover:bg-[#D9480F] hover:text-[#F4F0E6] hover:border-[#D9480F]",
+  outline: "bg-transparent text-[#1A1A17] border border-[#D9D4C7] hover:border-[#D9480F] hover:text-[#D9480F]",
 };
 
 interface CommonProps {
@@ -49,7 +48,7 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
     className: _className,
     children: _children,
     ...rest
-  } = props as ButtonAsButton;
+  } = props;
 
   return (
     <button className={classes} {...rest}>
@@ -57,3 +56,4 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
     </button>
   );
 }
+export default Button;

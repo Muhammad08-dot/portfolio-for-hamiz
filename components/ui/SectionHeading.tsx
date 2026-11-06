@@ -9,22 +9,21 @@ export default function SectionHeading({
 }) {
   return (
     <div className="mb-10 pt-2">
-      <div className="flex items-baseline gap-4 border-b border-[#E3E7EE] pb-4">
+      <div className="flex items-baseline gap-4 border-b border-[#D9D4C7] pb-4">
         {number && (
-          <span className="font-mono text-xs uppercase tracking-wider text-[#1FA3B3]">
+          <span className="font-mono text-xs uppercase tracking-wider text-[#D9480F]">
             {number}
           </span>
         )}
-        <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-[#0B1020]">
+        <h2 className="font-serif text-3xl sm:text-4xl text-[#1A1A17]">
           {title}
         </h2>
       </div>
       {description && (
-        <p className="mt-4 text-base text-[#5B6577] max-w-[65ch]">
+        <p className="mt-4 text-base text-[#5C5A52] max-w-[65ch] leading-relaxed">
           {description}
         </p>
       )}
     </div>
   );
 }
-

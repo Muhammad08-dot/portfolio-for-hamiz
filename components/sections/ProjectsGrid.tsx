@@ -23,7 +23,6 @@ export default function ProjectsGrid({
     return limit ? list.slice(0, limit) : list;
   }, [projects, active, limit]);
 
-  // Fix 2: Check if displayed projects have more than one distinct category
   const hasMultipleCategories = useMemo(() => {
     const categories = new Set(filtered.map((p) => p.category));
     return categories.size > 1;
@@ -33,17 +32,17 @@ export default function ProjectsGrid({
     <div>
       {/* Editorial filter tags in mono - only show if there are multiple filter options & no limit */}
       {!limit && (
-        <div className="mb-8 flex flex-wrap gap-2 border-b border-[#E3E7EE] pb-4 font-mono text-xs uppercase tracking-wider">
+        <div className="mb-8 flex flex-wrap gap-2 border-b border-[#D9D4C7] pb-4 font-mono text-xs uppercase tracking-wider">
           {site.projectFilters.map((filter) => {
             const isActive = active === filter;
             return (
               <button
                 key={filter}
                 onClick={() => setActive(filter)}
-                className={`px-3 py-1.5 rounded-md transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1FA3B3] ${
+                className={`px-3 py-1.5 rounded-[2px] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D9480F] ${
                   isActive
-                    ? "bg-[#0B1020] text-[#FFFFFF]"
-                    : "bg-transparent text-[#5B6577] hover:text-[#0B1020] hover:bg-[#E3E7EE]"
+                    ? "bg-[#1A1A17] text-[#F4F0E6] border border-[#1A1A17]"
+                    : "bg-transparent text-[#5C5A52] border border-transparent hover:text-[#1A1A17] hover:border-[#D9D4C7] hover:bg-[#ECE7DA]"
                 }`}
               >
                 {filter}
@@ -53,11 +52,11 @@ export default function ProjectsGrid({
         </div>
       )}
 
-      {/* Grid */}
-      <div className="grid gap-6 sm:grid-cols-2">
-        {filtered.map((project) => (
+      {/* Grid: 2 columns on desktop, 1 on mobile */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {filtered.map((project, idx) => (
           <ProjectCard
-            key={project.title}
+            key={project.title || idx}
             project={project}
             showCategory={hasMultipleCategories}
           />
@@ -66,4 +65,3 @@ export default function ProjectsGrid({
     </div>
   );
 }
-

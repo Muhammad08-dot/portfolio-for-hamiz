@@ -1,19 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Instrument_Serif, Source_Sans_3, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 import { site } from "@/data/site";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const montserrat = Montserrat({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400"],
   variable: "--font-heading-face",
   display: "swap",
 });
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-body-face",
@@ -28,7 +28,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0A1230",
+  themeColor: "#F4F0E6",
   width: "device-width",
   initialScale: 1,
 };
@@ -75,9 +75,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable}`}
+      className={`${instrumentSerif.variable} ${sourceSans.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="relative flex min-h-screen flex-col antialiased text-[#0B1020] bg-[#FFFFFF] animate-fade-in">
+      <body className="relative flex min-h-screen flex-col antialiased text-[#1A1A17] bg-[#F4F0E6] animate-fade-in selection:bg-[#D9480F]/20 selection:text-[#1A1A17]">
         <div className="relative z-10 flex min-h-screen flex-col">
           <Navbar />
           <main className="flex-1">{children}</main>

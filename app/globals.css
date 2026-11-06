@@ -1,60 +1,41 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   Theme tokens: White page with dark navy panels
-   Light theme tokens (white sections)
-   --bg: #FFFFFF (white background)
-   --text: #0B1020 (dark navy for text on white)
-   --muted: #5B6577 (muted text)
-   --border: #E3E7EE (light border)
-   --surface: #F7F9FC (subtle surface color)
-   
-   Dark panel tokens (hero & footer)
-   --panel: #0A1230 (dark navy)
-   --panel-text: #FFFFFF (white text on dark)
-   --panel-muted: #9AA6C1 (muted text on dark)
-   --accent: #1FA3B3 (teal accent)
-   --accent-dark: #0E7C86 (darker teal for text on white)
-   --glow: #2B6BFF (blue glow color)
-   
-   Fonts: Montserrat/Plus Jakarta Sans for headings/body, JetBrains Mono for labels
+   Theme tokens: Warm Editorial Paper & Cream Theme
+   --bg: #F4F0E6 (warm vintage cream paper background)
+   --surface: #ECE7DA (slightly deeper cream for cards/panels)
+   --text: #1A1A17 (ink black text)
+   --muted: #5C5A52 (warm charcoal / muted editorial text)
+   --border: #D8D2C2 (warm tactile cream-paper border)
+   --border-subtle: #E4DFD2
+   --accent: #D9480F (terracotta / burnt orange accent)
+   --accent-hover: #BF3F0D
+
+   Fonts: Instrument Serif (Headings), Source Sans 3 (Body), JetBrains Mono (Meta)
 --------------------------------------------------------------------------- */
 :root {
-  /* Light theme tokens (white sections) */
-  --bg: #FFFFFF;
-  --text: #0B1020;
-  --muted: #5B6577;
-  --border: #E3E7EE;
-  --surface: #F7F9FC;
-  
-  /* Dark panel tokens (hero & footer) */
-  --panel: #0A1230;
-  --panel-text: #FFFFFF;
-  --panel-muted: #9AA6C1;
-  --accent: #1FA3B3;
-  --accent-dark: #0E7C86;
-  --glow: #2B6BFF;
-  
-  /* Font families */
-  --font-heading: var(--font-heading-face, "Montserrat", sans-serif);
-  --font-body: var(--font-body-face, "Plus Jakarta Sans", sans-serif);
+  --bg: #F4F0E6;
+  --surface: #ECE7DA;
+  --text: #1A1A17;
+  --muted: #5C5A52;
+  --border: #D8D2C2;
+  --border-subtle: #E4DFD2;
+  --accent: #D9480F;
+  --accent-hover: #BF3F0D;
+
+  --font-heading: var(--font-heading-face, "Instrument Serif", Georgia, serif);
+  --font-body: var(--font-body-face, "Source Sans 3", -apple-system, sans-serif);
   --font-mono: var(--font-mono-face, "JetBrains Mono", monospace);
 }
 
 @theme {
   --color-bg: var(--bg);
+  --color-surface: var(--surface);
   --color-text: var(--text);
   --color-muted: var(--muted);
   --color-border: var(--border);
-  --color-surface: var(--surface);
-  
-  --color-panel: var(--panel);
-  --color-panel-text: var(--panel-text);
-  --color-panel-muted: var(--panel-muted);
   --color-accent: var(--accent);
-  --color-accent-dark: var(--accent-dark);
-  --color-glow: var(--glow);
-  
+
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
   --font-mono: var(--font-mono);
@@ -91,14 +72,14 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    font-weight: 600;
-    line-height: 1.1;
+    font-weight: 400;
+    line-height: 1.15;
     color: var(--text);
     letter-spacing: -0.01em;
   }
 
   p {
-    line-height: 1.6;
+    line-height: 1.65;
     max-width: 65ch;
   }
 
@@ -108,7 +89,7 @@
     transition: color 150ms ease, border-color 150ms ease;
   }
 
-  /* Focus ring style - teal accent, high contrast */
+  /* Focus ring style - burnt orange, editorial tactile focus */
   :focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
@@ -137,7 +118,7 @@
 }
 
 .animate-fade-in {
-  animation: pageFadeIn 200ms ease-out forwards;
+  animation: pageFadeIn 250ms ease-out forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -158,163 +139,4 @@
 .editorial-link:hover {
   color: var(--accent);
   text-decoration-color: var(--accent);
-}
-
-
-/* Page fade-in on initial mount */
-@keyframes pageFadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.animate-fade-in {
-  animation: pageFadeIn 200ms ease-out forwards;
-}
-
-/* Reveal on scroll animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.reveal-on-scroll {
-  opacity: 0;
-  animation: fadeInUp 300ms ease-out forwards;
-}
-
-.reveal-on-scroll.visible {
-  opacity: 1;
-}
-
-/* Hero panel styles */
-.dark-panel {
-  background-color: var(--panel);
-  color: var(--panel-text);
-  border-radius: 24px;
-  position: relative;
-  overflow: hidden;
-}
-
-.dark-panel::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: 
-    /* Dot matrix pattern - denser on right, fades left */
-    radial-gradient(circle at 80% 50%, var(--glow) 1px, transparent 1px) 0 0 / 40px 40px,
-    radial-gradient(circle at 70% 50%, var(--glow) 0.75px, transparent 0.75px) 0 0 / 50px 50px,
-    radial-gradient(circle at 60% 50%, var(--glow) 0.5px, transparent 0.5px) 0 0 / 60px 60px,
-    radial-gradient(circle at 50% 50%, var(--glow) 0.25px, transparent 0.25px) 0 0 / 80px 80px;
-  opacity: 0.1;
-  mask-image: linear-gradient(to left, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.1) 80%);
-}
-
-.dark-panel::after {
-  content: '';
-  position: absolute;
-  top: 20%;
-  right: 15%;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
-  opacity: 0.15;
-  filter: blur(40px);
-  z-index: 0;
-}
-
-/* Button styles */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 44px;
-  padding: 0 24px;
-  border-radius: 8px;
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 14px;
-  transition: all 150ms ease;
-  cursor: pointer;
-  border: none;
-  outline: none;
-}
-
-.btn:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-.btn-primary {
-  background-color: var(--panel);
-  color: var(--panel-text);
-}
-
-.btn-primary:hover {
-  background-color: #0D193C;
-}
-
-.btn-primary-outline {
-  background-color: transparent;
-  color: var(--panel-text);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.btn-primary-outline:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
-}
-
-.btn-secondary {
-  background-color: var(--accent);
-  color: white;
-}
-
-.btn-secondary:hover {
-  background-color: var(--accent-dark);
-}
-
-.btn-secondary-outline {
-  background-color: transparent;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-}
-
-.btn-secondary-outline:hover {
-  background-color: rgba(31, 163, 179, 0.1);
-}
-
-/* Card styles */
-.white-card {
-  background-color: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  transition: box-shadow 200ms ease, transform 200ms ease;
-}
-
-.white-card:hover {
-  box-shadow: 0 4px 16px rgba(11, 16, 32, 0.08);
-  transform: translateY(-2px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-fade-in,
-  .reveal-on-scroll,
-  .white-card {
-    animation: none;
-    transition: none;
-  }
-  
-  .white-card:hover {
-    transform: none;
-  }
 }
