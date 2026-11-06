@@ -12,8 +12,8 @@ export default function Hero() {
             <span>{site.about.availability}</span>
           </div>
 
-          {/* Big confident serif hero */}
-          <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-[#1A1A17]">
+          {/* Big confident modern hero */}
+          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-[#1A1A17]">
             {site.name}
           </h1>
 

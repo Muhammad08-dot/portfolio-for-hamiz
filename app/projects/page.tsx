@@ -31,7 +31,7 @@ export default function ProjectsPage() {
               <span className="font-mono text-xs uppercase tracking-wider text-[#D9480F]">
                 {group.number}
               </span>
-              <h2 className="mt-1 font-serif text-2xl sm:text-3xl text-[#1A1A17]">
+              <h2 className="mt-1 font-heading text-xl sm:text-2xl font-bold text-[#1A1A17]">
                 {group.title}
               </h2>
               <p className="mt-1.5 text-sm text-[#5C5A52] max-w-[70ch]">

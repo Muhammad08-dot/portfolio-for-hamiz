@@ -8,7 +8,7 @@ export default function NotFound() {
         <span className="font-mono text-xs uppercase tracking-wider text-[#D9480F]">
           [error: 404]
         </span>
-        <h1 className="mt-4 font-serif text-4xl sm:text-5xl text-[#1A1A17]">
+        <h1 className="mt-4 font-heading text-3xl sm:text-4xl font-bold text-[#1A1A17]">
           Page Not Found
         </h1>
         <p className="mt-3 text-base text-[#5C5A52] leading-relaxed">

@@ -5,7 +5,7 @@ export default function SkillCard({ category }: { category: SkillCategory }) {
     <div className="border border-[#D9D4C7] bg-[#F6F3EC] p-6 rounded-[3px]">
       <div className="mb-4 flex items-baseline justify-between border-b border-[#D9D4C7] pb-2">
         <div className="flex items-baseline gap-2">
-          <h3 className="font-serif text-xl text-[#1A1A17]">{category.title}</h3>
+          <h3 className="font-heading text-lg font-bold text-[#1A1A17]">{category.title}</h3>
           {category.proficiencyTag && (
             <span className="font-mono text-[10px] uppercase tracking-wider text-[#D9480F]">
               · {category.proficiencyTag}

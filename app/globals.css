@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   Theme tokens: Warm Editorial Paper & Cream Theme
+   Theme tokens: Warm Cream Theme with crisp Modern Typography
    --bg: #F4F0E6 (warm vintage cream paper background)
    --surface: #ECE7DA (slightly deeper cream for cards/panels)
-   --text: #1A1A17 (ink black text)
-   --muted: #5C5A52 (warm charcoal / muted editorial text)
+   --text: #1A1A17 (rich ink black)
+   --muted: #5C5A52 (warm charcoal / muted meta text)
    --border: #D8D2C2 (warm tactile cream-paper border)
    --border-subtle: #E4DFD2
-   --accent: #D9480F (terracotta / burnt orange accent)
+   --accent: #D9480F (burnt orange accent)
    --accent-hover: #BF3F0D
 
-   Fonts: Instrument Serif (Headings), Source Sans 3 (Body), JetBrains Mono (Meta)
+   Fonts: Montserrat (Headings), Plus Jakarta Sans (Body), JetBrains Mono (Meta)
 --------------------------------------------------------------------------- */
 :root {
   --bg: #F4F0E6;
@@ -23,8 +23,8 @@
   --accent: #D9480F;
   --accent-hover: #BF3F0D;
 
-  --font-heading: var(--font-heading-face, "Instrument Serif", Georgia, serif);
-  --font-body: var(--font-body-face, "Source Sans 3", -apple-system, sans-serif);
+  --font-heading: var(--font-heading-face, "Montserrat", sans-serif);
+  --font-body: var(--font-body-face, "Plus Jakarta Sans", sans-serif);
   --font-mono: var(--font-mono-face, "JetBrains Mono", monospace);
 }
 
@@ -72,10 +72,10 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    font-weight: 400;
+    font-weight: 700;
     line-height: 1.15;
     color: var(--text);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
 
   p {
@@ -139,4 +139,13 @@
 .editorial-link:hover {
   color: var(--accent);
   text-decoration-color: var(--accent);
+}
+
+/* Utilities */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

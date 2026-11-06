@@ -17,7 +17,7 @@ export default function TimelineItem({
 
         {/* Right column: role + company + achievements */}
         <div className="flex-1 mt-1 sm:mt-0">
-          <h3 className="font-serif text-2xl text-[#1A1A17]">{item.role}</h3>
+          <h3 className="font-heading text-xl font-bold text-[#1A1A17]">{item.role}</h3>
           <p className="mt-0.5 font-mono text-xs text-[#5C5A52] tracking-wide">
             {item.company}
           </p>

@@ -15,7 +15,7 @@ export default function SectionHeading({
             {number}
           </span>
         )}
-        <h2 className="font-serif text-3xl sm:text-4xl text-[#1A1A17]">
+        <h2 className="font-heading text-3xl sm:text-4xl font-bold text-[#1A1A17]">
           {title}
         </h2>
       </div>

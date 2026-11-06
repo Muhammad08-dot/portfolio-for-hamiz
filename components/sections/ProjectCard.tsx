@@ -14,7 +14,7 @@ export default function ProjectCard({
       <div>
         {/* Top row: Title and optional Category badge */}
         <div className="flex items-start justify-between gap-3">
-          <h3 className="font-serif text-xl sm:text-2xl text-[#1A1A17] group-hover:text-[#D9480F] transition-colors duration-150">
+          <h3 className="font-heading text-lg sm:text-xl font-bold text-[#1A1A17] group-hover:text-[#D9480F] transition-colors duration-150">
             {project.title}
           </h3>
           {showCategory && (

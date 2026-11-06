@@ -16,7 +16,7 @@ export default function ClientWorkCard({ work }: { work: ClientWork }) {
         </div>
 
         {/* Title & Tagline */}
-        <h3 className="mt-4 font-serif text-2xl sm:text-3xl text-[#1A1A17] group-hover:text-[#D9480F] transition-colors duration-150">
+        <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold text-[#1A1A17] group-hover:text-[#D9480F] transition-colors duration-150">
           {work.title}
         </h3>
         <p className="mt-1 font-mono text-xs uppercase tracking-wider text-[#5C5A52]">

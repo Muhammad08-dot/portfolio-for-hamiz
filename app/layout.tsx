@@ -1,19 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Source_Sans_3, JetBrains_Mono } from "next/font/google";
+import { Montserrat, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 import { site } from "@/data/site";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import BackToTop from "@/components/ui/BackToTop";
 
-const instrumentSerif = Instrument_Serif({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-heading-face",
   display: "swap",
 });
 
-const sourceSans = Source_Sans_3({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-body-face",
@@ -75,7 +76,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSerif.variable} ${sourceSans.variable} ${jetbrainsMono.variable}`}
+      className={`${montserrat.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable}`}
     >
       <body className="relative flex min-h-screen flex-col antialiased text-[#1A1A17] bg-[#F4F0E6] animate-fade-in selection:bg-[#D9480F]/20 selection:text-[#1A1A17]">
         <div className="relative z-10 flex min-h-screen flex-col">
@@ -83,6 +84,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
+        <BackToTop />
       </body>
     </html>
   );
